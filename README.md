@@ -14,7 +14,7 @@ Basic example to test Storm-Kafka-0.8-plus:
   
   Submit the topology to Storm cluster:
   
-  storm jar target/storm-kafka-0.8-plus-test-0.1.0-SNAPSHOT.jar storm.kafka.KafkaSpoutTestTopology <zookeepers host:port> <kafka topic-name> <storm topology-name> <storm-nimbus host> <storm-nimbus port>
+  storm jar target/storm-kafka-0.8-plus-test-0.1.0-SNAPSHOT.jar storm.kafka.KafkaSpoutTestTopology \<zookeepers host:port> \<kafka topic-name> \<storm topology-name> \<storm-nimbus host> \<storm-nimbus port>
   
   -> Example:
   
