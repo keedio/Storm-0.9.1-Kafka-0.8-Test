@@ -5,9 +5,9 @@
 
 
     <groupId>net.wurstmeister.storm</groupId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>storm-kafka-0.8-plus-test</artifactId>
+    <artifactId>Storm-0.9.1-Kafka-0.8-Test</artifactId>
     <dependencies>
         <dependency>
             <groupId>net.wurstmeister.storm</groupId>
@@ -27,7 +27,7 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
+            <!--plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
                     <descriptorRefs>
@@ -48,7 +48,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
