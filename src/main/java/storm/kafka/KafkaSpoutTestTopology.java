@@ -39,8 +39,8 @@ public class KafkaSpoutTestTopology {
         brokerHosts = new ZkHosts(kafkaZookeeper);
     }
 
-    public StormTopology buildTopology() {
-        SpoutConfig kafkaConfig = new SpoutConfig(brokerHosts, "storm-sentence", "", "storm");
+    public StormTopology buildTopology(String topic) {
+        SpoutConfig kafkaConfig = new SpoutConfig(brokerHosts, topic, "", "storm");
         kafkaConfig.scheme = new SchemeAsMultiScheme(new StringScheme());
         TopologyBuilder builder = new TopologyBuilder();
         builder.setSpout("words", new KafkaSpout(kafkaConfig), 10);
@@ -71,15 +71,16 @@ public class KafkaSpoutTestTopology {
     public static void main(String[] args) throws Exception {
 
         String kafkaZk = args[0];
+	String topic = args[1];
         KafkaSpoutTestTopology kafkaSpoutTestTopology = new KafkaSpoutTestTopology(kafkaZk);
         Config config = new Config();
         config.put(Config.TOPOLOGY_TRIDENT_BATCH_EMIT_INTERVAL_MILLIS, 2000);
 
-        StormTopology stormTopology = kafkaSpoutTestTopology.buildTopology();
+        StormTopology stormTopology = kafkaSpoutTestTopology.buildTopology(topic);
         if (args != null && args.length > 1) {
-            String name = args[1];
-            String nimbusHost = args[2];
-            String nimbusPort = args[3];            
+            String name = args[2];
+            String nimbusHost = args[3];
+            String nimbusPort = args[4];            
             config.setNumWorkers(2);
             config.setMaxTaskParallelism(5);
             config.put(Config.NIMBUS_HOST, nimbusHost);
